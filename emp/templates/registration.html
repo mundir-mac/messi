@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center><h1>Registarion Form</h1></center><br>
+<form method="post" action="create" enctype="multipart/form-data">
+{% csrf_token %}
+    EMPLOYEE_ID<input type="text"name="emp_id"><br>
+    EMPLOYEE_NAME<input type="text"name="emp_name"><br>
+    SALARY<input type="text"name="salary"><br>
+    PLACE<input type="text"name="place"><br>
+
+     img<input type="file"name="img"><br>
+    <input type="SUBMIT" name="sub">
+</form>
+<form method="post" action="display">
+    {% csrf_token %}
+    <input type="submit" value="DISPLAY">
+
+    <table>
+        {% for i in s %}
+
+       <tr>
+        <td>{{i.EMPLOYEE_ID}}</td>
+        <td>{{i.EMPLOYEE_NAME}}</td>
+        <td>{{i.SALARY}}</td>
+        <td>{{i.PLACE}}</td>
+                   <td><img src="{{i.img.url}}"height=150px" width="150px" ></td>
+
+       </tr>
+       {% endfor %}
+
+
+</table>
+</form>
+<form method="post" action="search">
+    {% csrf_token %}
+               EMPLOYEE_ID<input type="text" name="EMPLOYEE_ID"><br>
+          <input type="submit"  value="SEARCH">
+
+</form>
+
+</body>
+</html>

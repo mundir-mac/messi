@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<table border="solid">
+    <tr>
+        <th>EMPLOYEE_ID</th>
+        <th>EMPLOYEE_NAME</th>
+        <th>SALARY</th>
+        <th>PLACE</th>
+        <th>img</th>
+    </tr>
+    {% for i in s %}
+    <form method="POST" action="delete">
+        {% csrf_token %}
+    <tr>
+     <input type="text"name="emp_id" value="{{i.EMPLOYEE_ID}}" hidden><br>
+     <td>{{i.EMPLOYEE_ID}}</td>
+    <td>{{i.EMPLOYEE_NAME}}</td>
+    <td>{{i.SALARY}}</td>
+        <td>{{i.PLACE}}</td>
+        <td><img src="{{i.img.url}}" height="150px" width="150px"></td>
+         <td><input type="submit" value="DELETE"></td>
+
+    </tr>
+      </form>
+   {% endfor %}
+
+
+</table>
+
+</body>
+</html>
